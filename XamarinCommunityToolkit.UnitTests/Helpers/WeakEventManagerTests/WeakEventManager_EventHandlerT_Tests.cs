@@ -118,7 +118,7 @@ namespace Xamarin.CommunityToolkit.UnitTests.Helpers.WeakEventManagerTests
 		public void WeakEventManager_NullEventManager()
 		{
 			// Arrange
-			WeakEventManager unassignedEventManager = null;
+			Forms.WeakEventManager unassignedEventManager = null;
 
 			// Act
 

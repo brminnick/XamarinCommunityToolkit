@@ -13,7 +13,7 @@ namespace Xamarin.CommunityToolkit.ObjectModel
 	/// </summary>
 	public abstract class ObservableObject : INotifyPropertyChanged
 	{
-		readonly WeakEventManager weakEventManager = new WeakEventManager();
+		readonly DelegateWeakEventManager weakEventManager = new DelegateWeakEventManager();
 
 		/// <summary>
 		/// Occurs when property changed.
@@ -62,6 +62,6 @@ namespace Xamarin.CommunityToolkit.ObjectModel
 		/// </summary>
 		/// <param name="propertyName">Property name.</param>
 		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = "") =>
-			weakEventManager.RaiseEvent(this, new PropertyChangedEventArgs(propertyName), nameof(PropertyChanged));
+			weakEventManager.HandleEvent(this, new PropertyChangedEventArgs(propertyName), nameof(PropertyChanged));
 	}
 }
